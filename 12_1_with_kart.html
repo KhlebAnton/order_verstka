@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-	<title>31. Заявка приянта - фото</title>
+	<title>40.Фото карты</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" href="css/style.min.css?_v=20251029151108">
@@ -200,35 +200,56 @@
 		</header>
 		<main class="main-page">
 			<section class="page__head wrap big order__bg">
-				<form class="order-form-wrapper order_center">
-					<div class="order__top_info">
-						<h1 class="order__title">Фото отправлены</h1>
-					</div>
-					<div class="order-thanks-msg">
-						<img src="./img/check.svg" alt="" class="order-thanks-msg__img">
-						<h3>
-							Спасибо!
-						</h3>
-						<p>
-							Нам потребуется 15-20 минут, <br> чтобы все проверить.
-
-						</p>
-						<div class="load-animation">
-							<div class="load-animation_circle"></div>
-							<div class="load-animation_circle"></div>
-							<div class="load-animation_circle"></div>
-							<div class="load-animation_circle"></div>
+				<form class="order-form-wrapper ">
+					<div class="order_input-wrapper ">
+						<h1 class="order__title">Добавьте фото карты</h1>
+						<div class="photo-container_moddle">
+							<p class="order-text">
+								Чтобы подтвердить, что заявление заполнено вами лично, сделайте ваше фото с паспортом в развернутом виде.
+							</p>
+							<div class="photo-upload-container photo-upload-container_big">
+								<div class="photo-upload-img__wrapper ">
+									<div class="photo-upload-img-container ">
+										<img src="./img/photo-card.png" alt="" class="photo-upload-preview">
+										<button type="button" class="photo-upload-delete" style="display: none;">
+										</button>
+									</div>
+									
+								</div>
+								<input type="file" name="pasport-photo" id="pasport-photo-input" accept="image/*" required style="display: none;">
+								<div class="photo-upload-btns">
+									<button type="button" class="photo-upload-btn photo-upload-btn_shot">
+										<span>
+											Сделать<br> фото
+										</span>
+									</button>
+									<button type="button" class="photo-upload-btn photo-upload-btn_media">
+										<span>
+											Загрузить <br>из галереи
+										</span>
+									</button>
+								</div>
+								<p class="order-text">
+									Требуется подтвердить, что карта, на которую будут зачислены деньги, действительно принадлежит вам. Для этого загрузите фото лицевой стороны карты.
+								</p>
+								<p class="order-text">
+									Лицевая сторона — та, на которой указаны номер карты и имя ее владельца.
+								</p>
+							</div>
+							
 						</div>
-						<p>
-							Решение появится в личном кабинете, а также будет продублировано в СМС.
+						
+						
+						
+							
 
-						</p>
 					</div>
-
-
-
-
-
+					<div class="order_input-items__row">
+						<div class="order_btn-container">
+							<button class="order__btn order__btn-prev">Назад</button>
+							<button class="order__btn order__btn-next" disabled>Далее</button>
+						</div>
+					</div>
 				</form>
 
 			</section>

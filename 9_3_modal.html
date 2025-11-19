@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-	<title>31. Заявка приянта - фото</title>
+	<title>35. Модалка</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" href="css/style.min.css?_v=20251029151108">
@@ -26,6 +26,28 @@
 </head>
 
 <body>
+	<div class="modal-overlay">
+		<div class="modal-content">
+			<div class="modal-close"></div>
+			<div class="order__top_info">
+				<h1 class="order__title">Оформление займа онлайн</h1>
+			</div>
+			<div class="order-thanks-msg order-thanks-msg_middle">
+				<img src="./img/right-round.svg" alt="" class="order-thanks-msg__img">
+				<h3>
+					Поздравляем!
+				</h3>
+				<p class="thanks-msg_middle-text">
+					Заявка одобрена. Можно приступить к онлайн-оформлению займа.
+
+
+				</p>
+
+
+			</div>
+			<button class="order__btn order__btn-next">Далее</button>
+		</div>
+	</div>
 	<div class="wrapper">
 		<nav class="mobile-menu">
 			<a class="close"></a>
@@ -200,36 +222,32 @@
 		</header>
 		<main class="main-page">
 			<section class="page__head wrap big order__bg">
-				<form class="order-form-wrapper order_center">
+				<div class="order-form-wrapper order_center">
 					<div class="order__top_info">
-						<h1 class="order__title">Фото отправлены</h1>
+						<h1 class="order__title">Заявка одобрена</h1>
 					</div>
-					<div class="order-thanks-msg">
+					<div class="order-thanks-msg order-thanks-msg_middle">
 						<img src="./img/check.svg" alt="" class="order-thanks-msg__img">
 						<h3>
-							Спасибо!
+							Поздравляем!
 						</h3>
-						<p>
-							Нам потребуется 15-20 минут, <br> чтобы все проверить.
+						<p class="thanks-msg_middle-text">
+							Ваша заявка одобрена.
+
 
 						</p>
-						<div class="load-animation">
-							<div class="load-animation_circle"></div>
-							<div class="load-animation_circle"></div>
-							<div class="load-animation_circle"></div>
-							<div class="load-animation_circle"></div>
-						</div>
-						<p>
-							Решение появится в личном кабинете, а также будет продублировано в СМС.
-
+						<p class="thanks-msg_middle-text">
+							В ближайшее время с вами свяжется наш сотрудник для согласования способа получения денег.
 						</p>
+
 					</div>
+					<button class="order__btn order__btn-next" onclick="openModal()">Открыть модалку</button>
+
+
+				</div>
 
 
 
-
-
-				</form>
 
 			</section>
 

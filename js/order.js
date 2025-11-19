@@ -138,6 +138,17 @@
 			if (input.type === 'radio') continue; // radio проверяем отдельно
 			if (input.type === 'file') continue; // file проверяем отдельно
 			if (input.type === 'checkbox') continue; // checkbox проверяем отдельно
+			
+			// Специальная проверка для полей телефона
+			if (input.name === 'tel' || (input.placeholder && input.placeholder.includes('+7'))) {
+				const phoneValue = input.value.replace(/\D/g, ''); // Убираем все нецифровые символы
+				// Проверяем, что номер содержит 11 цифр (7 + 10)
+				if (phoneValue.length !== 11 || !phoneValue.startsWith('7')) {
+					return false;
+				}
+				continue;
+			}
+			
 			if (!input.value.trim()) return false;
 		}
 
@@ -191,9 +202,45 @@
 		return true;
 	};
 
+	// Проверка валидности телефона
+	const validatePhoneField = (input, showError = true) => {
+		if (!input) return true;
+		
+		// Проверяем только поля телефона
+		if (input.name !== 'tel' && (!input.placeholder || !input.placeholder.includes('+7'))) {
+			return true;
+		}
+		
+		const phoneValue = input.value.replace(/\D/g, ''); // Убираем все нецифровые символы
+		const isValid = phoneValue.length === 11 && phoneValue.startsWith('7');
+		
+		// Показываем ошибку только если поле было в фокусе или содержит больше чем "+7"
+		// или если явно указано showError = true
+		const shouldShowError = showError && (input.dataset.wasFocused === 'true' || phoneValue.length > 1);
+		
+		// Добавляем/убираем класс ошибки
+		if (isValid || !shouldShowError) {
+			input.classList.remove('order-input_error');
+		} else {
+			input.classList.add('order-input_error');
+		}
+		
+		return isValid;
+	};
+
 	const updateFormButton = (form) => {
 		const button = form?.querySelector('.order__btn-next');
 		if (!button) return;
+
+		// Проверяем все поля телефона и обновляем их визуальное состояние
+		const phoneInputs = form.querySelectorAll('input[name="tel"], input[placeholder*="+7"]');
+		phoneInputs.forEach(input => {
+			if (input.placeholder && input.placeholder.includes('+7')) {
+				// Показываем ошибку только если поле было в фокусе
+				const showError = input.dataset.wasFocused === 'true';
+				validatePhoneField(input, showError);
+			}
+		});
 
 		const isValid = checkForm(form);
 		button.disabled = !isValid;
@@ -672,5 +719,265 @@
 		document.addEventListener('DOMContentLoaded', initPassportUpload);
 	} else {
 		initPassportUpload();
+	}
+
+	// Работа с модалкой
+	const OVERFLOW_HIDDEN_CLASS = 'overflow-hidden';
+
+	const openModal = () => {
+		const modalOverlay = document.querySelector('.modal-overlay');
+		if (!modalOverlay) return;
+		modalOverlay.classList.add('is-visible');
+		document.body.classList.add(OVERFLOW_HIDDEN_CLASS);
+	};
+
+	const closeModal = () => {
+		const modalOverlay = document.querySelector('.modal-overlay');
+		if (!modalOverlay) return;
+		modalOverlay.classList.remove('is-visible');
+		document.body.classList.remove(OVERFLOW_HIDDEN_CLASS);
+	};
+
+	// Инициализация модалки
+	const initModal = () => {
+		const modalOverlay = document.querySelector('.modal-overlay');
+		const modalClose = document.querySelector('.modal-close');
+		
+		if (!modalOverlay) return;
+
+		// Закрытие по клику на кнопку закрытия
+		if (modalClose) {
+			modalClose.addEventListener('click', closeModal);
+		}
+
+		// Закрытие по клику на overlay (но не на content)
+		modalOverlay.addEventListener('click', (e) => {
+			if (e.target === modalOverlay) {
+				closeModal();
+			}
+		});
+
+		// Закрытие по Escape
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') {
+				const modalOverlay = document.querySelector('.modal-overlay');
+				if (modalOverlay && modalOverlay.classList.contains('is-visible')) {
+					closeModal();
+				}
+			}
+		});
+	};
+
+	// Делаем функции глобальными для использования в onclick
+	window.openModal = openModal;
+	window.closeModal = closeModal;
+
+	// Инициализация модалки
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initModal);
+	} else {
+		initModal();
+	}
+
+	// Маска для телефонного номера
+	const applyPhoneMask = (input) => {
+		if (!input) return;
+
+		// Функция форматирования телефона
+		const formatPhone = (value) => {
+			// Удаляем все нецифровые символы
+			let digits = value.replace(/\D/g, '');
+			
+			// Если начинается с 8, заменяем на 7
+			if (digits.startsWith('8')) {
+				digits = '7' + digits.slice(1);
+			} else if (!digits.startsWith('7') && digits.length > 0) {
+				digits = '7' + digits;
+			}
+
+			// Ограничиваем до 11 цифр (7 + 10)
+			if (digits.length > 11) {
+				digits = digits.slice(0, 11);
+			}
+
+			// Форматируем в +7 (XXX) XXX-XX-XX
+			if (digits.length === 0) {
+				return '+7';
+			}
+
+			let formatted = '+7';
+			if (digits.length > 1) {
+				const code = digits.slice(1, 4);
+				const part1 = digits.slice(4, 7);
+				const part2 = digits.slice(7, 9);
+				const part3 = digits.slice(9, 11);
+
+				if (code) {
+					formatted += ` (${code}`;
+					if (part1) {
+						formatted += `) ${part1}`;
+						if (part2) {
+							formatted += `-${part2}`;
+							if (part3) {
+								formatted += `-${part3}`;
+							}
+						}
+					} else {
+						formatted += ')';
+					}
+				}
+			}
+
+			return formatted;
+		};
+
+		// Обработчик фокуса - добавляем +7 если поле пустое
+		const handleFocus = () => {
+			if (!input.value || input.value === '+7') {
+				input.value = '+7';
+				input.setSelectionRange(2, 2);
+			}
+			// Отмечаем, что поле было в фокусе
+			input.dataset.wasFocused = 'true';
+		};
+		
+		// Обработчик потери фокуса - проверяем валидность
+		const handleBlur = () => {
+			validatePhoneField(input, true);
+			const form = input.closest('form') || input.closest('.order-form-wrapper');
+			if (form) {
+				const button = form.querySelector('.order__btn-next');
+				if (button) {
+					const isValid = checkForm(form);
+					button.disabled = !isValid;
+				}
+			}
+		};
+
+		// Обработчик ввода
+		const handleInput = (e) => {
+			const cursorPosition = input.selectionStart;
+			const oldValue = input.value;
+			
+			// Если поле пустое или только +7, начинаем с +7
+			if (!oldValue || oldValue === '+7') {
+				input.value = '+7';
+			}
+			
+			const newValue = formatPhone(input.value);
+			input.value = newValue;
+
+			// Восстанавливаем позицию курсора
+			let newCursorPosition = cursorPosition;
+			if (oldValue.length !== newValue.length) {
+				// Вычисляем количество цифр до курсора в старом значении
+				const digitsBefore = oldValue.slice(0, cursorPosition).replace(/\D/g, '').length;
+				let count = 0;
+				for (let i = 0; i < newValue.length && count < digitsBefore; i++) {
+					if (/\d/.test(newValue[i])) {
+						count++;
+					}
+					newCursorPosition = i + 1;
+				}
+				// Минимальная позиция - после +7
+				if (newCursorPosition < 2) {
+					newCursorPosition = 2;
+				}
+			}
+
+			input.setSelectionRange(newCursorPosition, newCursorPosition);
+			
+			// Проверяем валидность телефона и обновляем визуальное состояние
+			const form = input.closest('form') || input.closest('.order-form-wrapper');
+			if (form) {
+				validatePhoneField(input);
+				// Обновляем состояние кнопки формы
+				const button = form.querySelector('.order__btn-next');
+				if (button) {
+					const isValid = checkForm(form);
+					button.disabled = !isValid;
+				}
+			}
+		};
+
+		// Обработчик вставки
+		const handlePaste = (e) => {
+			e.preventDefault();
+			const pastedText = (e.clipboardData || window.clipboardData).getData('text');
+			const formatted = formatPhone(pastedText);
+			input.value = formatted;
+			
+			// Устанавливаем курсор в конец
+			input.setSelectionRange(formatted.length, formatted.length);
+			
+			// Проверяем валидность телефона и обновляем визуальное состояние
+			const form = input.closest('form') || input.closest('.order-form-wrapper');
+			if (form) {
+				validatePhoneField(input);
+				// Обновляем состояние кнопки формы
+				const button = form.querySelector('.order__btn-next');
+				if (button) {
+					const isValid = checkForm(form);
+					button.disabled = !isValid;
+				}
+			}
+		};
+
+		// Обработчик удаления (Backspace/Delete)
+		const handleKeyDown = (e) => {
+			// Разрешаем удаление и навигацию
+			if ([8, 9, 27, 13, 46, 35, 36, 37, 38, 39, 40].indexOf(e.keyCode) !== -1 ||
+				(e.keyCode === 65 && e.ctrlKey === true) || // Ctrl+A
+				(e.keyCode >= 35 && e.keyCode <= 40)) { // Home, End, стрелки
+				// Если нажали Backspace и курсор на позиции 2 (после +7), предотвращаем удаление
+				if (e.keyCode === 8 && input.selectionStart <= 2) {
+					e.preventDefault();
+					return;
+				}
+				return;
+			}
+			
+			// Разрешаем Ctrl+C, Ctrl+V, Ctrl+X
+			if ((e.ctrlKey === true || e.metaKey === true) && [67, 86, 88].indexOf(e.keyCode) !== -1) {
+				return;
+			}
+
+			// Разрешаем только цифры
+			if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+				e.preventDefault();
+			}
+		};
+
+		// Применяем обработчики
+		input.addEventListener('focus', handleFocus);
+		input.addEventListener('blur', handleBlur);
+		input.addEventListener('input', handleInput);
+		input.addEventListener('paste', handlePaste);
+		input.addEventListener('keydown', handleKeyDown);
+
+		// Инициализация: форматируем текущее значение, если оно есть
+		if (input.value) {
+			input.value = formatPhone(input.value);
+		} else {
+			input.value = '+7';
+		}
+	};
+
+	// Инициализация масок для всех полей телефона
+	const initPhoneMasks = () => {
+		// Находим все поля с placeholder для телефона
+		const phoneInputs = document.querySelectorAll('input[placeholder*="+7"], input[name="tel"], input[type="tel"]');
+		phoneInputs.forEach(input => {
+			if (input.placeholder && input.placeholder.includes('+7')) {
+				applyPhoneMask(input);
+			}
+		});
+	};
+
+	// Инициализация масок телефона
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initPhoneMasks);
+	} else {
+		initPhoneMasks();
 	}
 })();
