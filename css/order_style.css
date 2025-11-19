@@ -5,8 +5,13 @@
     --color-disbled: #819DB2;
 }
 input[type="date"] {
+  width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  
+  /* Для Safari */
+  -webkit-appearance: none;
+  appearance: none;
 }
 .order__title {
     font-size: 48px;
