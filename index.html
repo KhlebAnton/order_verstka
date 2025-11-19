@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Верстка заявки</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        a {
+            display: block;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #003964;
+            border: 1px solid #CBD8E0;
+            transition: all 0.2s;
+        }
+        a:hover {
+            background: #F5F9FC;
+            border-color: #346184;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .file-name {
+            font-size: 12px;
+            color: #819DB2;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Верстка заявки - Список страниц</h1>
+    <div class="links-container">
+        <a href="1_1_firstdisplay.html">
+            <strong>1.Первый экран после заявки</strong>
+            <div class="file-name">1_1_firstdisplay.html</div>
+        </a>
+        <a href="1_2_firstdisplay_lombard.html">
+            <strong>2. Первый экран после заявки - ломбард</strong>
+            <div class="file-name">1_2_firstdisplay_lombard.html</div>
+        </a>
+        <a href="1_3_firstdisplay_pts.html">
+            <strong>3.Первый экран после заявки - ПТС</strong>
+            <div class="file-name">1_3_firstdisplay_pts.html</div>
+        </a>
+        <a href="1_4_firstdisplay_refin.html">
+            <strong>4.Первый экран после заявки - Рефин</strong>
+            <div class="file-name">1_4_firstdisplay_refin.html</div>
+        </a>
+        <a href="1_5_firstdisplay_info.html">
+            <strong>5.Первый экран после заявки- рефин</strong>
+            <div class="file-name">1_5_firstdisplay_info.html</div>
+        </a>
+        <a href="2_1_pasport-photo.html">
+            <strong>6. Основные данные</strong>
+            <div class="file-name">2_1_pasport-photo.html</div>
+        </a>
+        <a href="2_2_pasport-photo-alert.html">
+            <strong>7. Основные данные (ошибка)</strong>
+            <div class="file-name">2_2_pasport-photo-alert.html</div>
+        </a>
+        <a href="2_3_pasport-ruk-photo.html">
+            <strong>8. Основные данные - руководитель</strong>
+            <div class="file-name">2_3_pasport-ruk-photo.html</div>
+        </a>
+        <a href="2_4_pasport-ruk-photo-alert.html">
+            <strong>9. Основные данные - руководитель - ошибка</strong>
+            <div class="file-name">2_4_pasport-ruk-photo-alert.html</div>
+        </a>
+        <a href="2_5_pasport-photo-ok.html">
+            <strong>10 Данные распознались</strong>
+            <div class="file-name">2_5_pasport-photo-ok.html</div>
+        </a>
+        <a href="2_6_pasport-photo-almost.html">
+            <strong>11 Данные частично распознались</strong>
+            <div class="file-name">2_6_pasport-photo-almost.html</div>
+        </a>
+        <a href="2_7_pasport-ruk-photo-ok.html">
+            <strong>12 Данные руков-ля  распознались</strong>
+            <div class="file-name">2_7_pasport-ruk-photo-ok.html</div>
+        </a>
+        <a href="2_8_pasport-ruk-photo-almost.html">
+            <strong>13 Данные руков-ля частично распознались</strong>
+            <div class="file-name">2_8_pasport-ruk-photo-almost.html</div>
+        </a>
+        <a href="3_1_pasport-photo-adress.html">
+            <strong>14 прописка</strong>
+            <div class="file-name">3_1_pasport-photo-adress.html</div>
+        </a>
+        <a href="3_2_pasport-photo-adress-ok.html">
+            <strong>15 Прописка - данные ок</strong>
+            <div class="file-name">3_2_pasport-photo-adress-ok.html</div>
+        </a>
+        <a href="4_1_transport.html">
+            <strong>16. Тип транспорта</strong>
+            <div class="file-name">4_1_transport.html</div>
+        </a>
+        <a href="4_2_agreement.html">
+            <strong>17. Согласие на подачу заявки</strong>
+            <div class="file-name">4_2_agreement.html</div>
+        </a>
+        <a href="4_3_agreement-sms.html">
+            <strong>18. Согласие на подачу заявки - смс</strong>
+            <div class="file-name">4_3_agreement-sms.html</div>
+        </a>
+        <a href="5_1_sts-photo.html">
+            <strong>19. СТС</strong>
+            <div class="file-name">5_1_sts-photo.html</div>
+        </a>
+        <a href="5_2_sts-photo_upload.html">
+            <strong>20. СТС - загружена фотка</strong>
+            <div class="file-name">5_2_sts-photo_upload.html</div>
+        </a>
+        <a href="5_3_sts-photo-ok.html">
+            <strong>21. СТС - данные</strong>
+            <div class="file-name">5_3_sts-photo-ok.html</div>
+        </a>
+        <a href="5_4_sts-photo-almost.html">
+            <strong>22. СТС - данные почти все</strong>
+            <div class="file-name">5_4_sts-photo-almost.html</div>
+        </a>
+        <a href="5_5_samohod-photo.html">
+            <strong>23. Самоход фото</strong>
+            <div class="file-name">5_5_samohod-photo.html</div>
+        </a>
+        <a href="5_6_samohod-photo-almost.html">
+            <strong>24. Самоход данные</strong>
+            <div class="file-name">5_6_samohod-photo-almost.html</div>
+        </a>
+        <a href="6_1_pts-photo.html">
+            <strong>25. ПТС</strong>
+            <div class="file-name">6_1_pts-photo.html</div>
+        </a>
+        <a href="6_2_psm-photo.html">
+            <strong>26. ПСМ</strong>
+            <div class="file-name">6_2_psm-photo.html</div>
+        </a>
+        <a href="7_1_zalog-photo.html">
+            <strong>27. Фото - легковой авто</strong>
+            <div class="file-name">7_1_zalog-photo.html</div>
+        </a>
+        <a href="7_2_zalog-photo.html">
+            <strong>28. Фото - водный транспорт</strong>
+            <div class="file-name">7_2_zalog-photo.html</div>
+        </a>
+        <a href="7_3_zalog-photo.html">
+            <strong>29. Фото - спец техники грузовые авто</strong>
+            <div class="file-name">7_3_zalog-photo.html</div>
+        </a>
+        <a href="7_4_zalog-photo.html">
+            <strong>30 Фото - мото</strong>
+            <div class="file-name">7_4_zalog-photo.html</div>
+        </a>
+        <a href="8_1_zayavka-ok.html">
+            <strong>31. Заявка приянта - фото</strong>
+            <div class="file-name">8_1_zayavka-ok.html</div>
+        </a>
+        <a href="8_2_zayavka-ok.html">
+            <strong>32. Заявка принята</strong>
+            <div class="file-name">8_2_zayavka-ok.html</div>
+        </a>
+        <a href="9_1_zayavka.html">
+            <strong>33. Заявка одобрена</strong>
+            <div class="file-name">9_1_zayavka.html</div>
+        </a>
+    </div>
+</body>
+</html>

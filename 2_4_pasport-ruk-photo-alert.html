@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>9. Основные данные - руководитель - ошибка</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="css/style.min.css?_v=20251029151108">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://autocash.ru/wp-content/themes/autocash/css/nice-select.css?_v=20251029151108">
+	<link rel="stylesheet" href="https://autocash.ru/wp-content/themes/autocash/css/style.css?_v=20251029151108">
+	<link rel="stylesheet" href="https://autocash.ru/wp-content/themes/autocash/css/slick.css?_v=20251029151108">
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css?_v=20251029151108">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css?_v=20251029151108">
+	<link rel="stylesheet"
+		href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?_v=20251029151108">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap-grid.min.css?_v=20251029151108">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css?_v=20251029151108">
+	<link rel='stylesheet' id='wp-block-library-css'
+		href='https://autocash.ru/wp-includes/css/dist/block-library/style.min.css?ver=6.8.3&_v=20251029151108'
+		type='text/css' media='all' />
+	<link rel="stylesheet" href="./css/order_style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<nav class="mobile-menu">
+			<a class="close"></a>
+			<div class="wrap mt-5">
+
+				<ul>
+					<a class="button-style" href="/zaim-pay/">Оплата займа</a>
+
+					<!--
+			<li>
+				<a style="color: #df2222;" href="/zaim-pay/">Оплата займа</a>
+			</li>
+			-->
+
+					<!--
+			<li>
+				<a href="/">Главная</a>
+			</li>
+			-->
+					<br>
+					<li class="shadow-sm">
+						<a>
+							<i class="fa fa-angle-down"></i> Программы займов
+						</a>
+						<ul>
+							<li id="menu-item-402"
+								class="menu-item menu-item-type-post_type menu-item-object-post menu-item-402"><a
+									href="https://autocash.ru/services/zajm-pod-avto/">Займ под авто</a></li>
+							<li id="menu-item-400"
+								class="menu-item menu-item-type-post_type menu-item-object-post menu-item-400"><a
+									href="https://autocash.ru/services/avtolombard/">Автоломбард</a></li>
+							<li id="menu-item-401"
+								class="menu-item menu-item-type-post_type menu-item-object-post menu-item-401"><a
+									href="https://autocash.ru/services/zajmy-dlya-biznesa/">Займ для бизнеса</a></li>
+							<li id="menu-item-403"
+								class="menu-item menu-item-type-post_type menu-item-object-post menu-item-403"><a
+									href="https://autocash.ru/services/refinansirovanie-zajmov/">Рефинансирование
+									займов</a>
+							</li>
+						</ul>
+					</li>
+
+					<li>
+						<a>
+							<i class="fa fa-angle-down"></i> Клиентам
+						</a>
+						<ul>
+							<li id="menu-item-406"
+								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-406"><a
+									href="https://autocash.ru/zayavka-na-zajm/">Заявка на займ</a></li>
+							<li id="menu-item-405"
+								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-405"><a
+									href="https://autocash.ru/zaim-pay/">Оплата займа</a></li>
+						</ul>
+					</li>
+
+					<li>
+						<a>
+							<i class="fa fa-angle-down"></i> О нас
+						</a>
+						<ul>
+							<li id="menu-item-694"
+								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-694"><a
+									href="https://autocash.ru/o-kompanii/">О компании</a></li>
+							<li id="menu-item-409"
+								class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-409"><a
+									href="https://autocash.ru/category/news/">Новости</a></li>
+							<li id="menu-item-449"
+								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-449"><a
+									href="/reviews/">Отзывы</a></li>
+							<li id="menu-item-413"
+								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-413"><a
+									href="https://autocash.ru/usloviya/">Условия</a></li>
+							<li id="menu-item-692"
+								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-692"><a
+									href="https://autocash.ru/dokumenty/">Документы</a></li>
+							<li id="menu-item-693"
+								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-693"><a
+									href="https://autocash.ru/invest/">Инвестиции</a></li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="/kontakty/">Контакты</a>
+					</li>
+				</ul>
+				<!--
+		<div class="contacts">
+			<a class="phone" href="+7 495 777-38-32">+7 495 777-38-32</a>
+		</div>
+		-->
+
+				<!--
+		<div class="contacts">
+									<a class="phone" href="tel:+7 495 777-38-32">
+					+7 495 777-38-32                        </a>
+							</div>
+		-->
+			</div>
+		</nav>
+		<header class="header">
+			<div class="wrap big header-inner">
+				<div class="logo">
+					<a href="/">
+						<img src="img/logo.svg">
+					</a>
+				</div>
+				<div class="is-lg-hidden mob-other">
+					<a class="menu-btn" href="#"></a>
+				</div>
+
+				<ul class="is-lg-visible main-menu">
+					<li>
+						<a class="menu" href="#"></a>
+					</li>
+					<li id="" class="menu-item menu-item-type-post_type menu-item-object-post">
+						<a href="https://ci71963.tmweb.ru/autocash/applications.html">Заявки</a>
+					</li>
+					<li id="" class="menu-item menu-item-type-post_type menu-item-object-post">
+						<a href="https://ci71963.tmweb.ru/autocash/loans.html">Займы</a>
+					</li>
+					<li id="" class="menu-item menu-item-type-post_type menu-item-object-post">
+						<a href="https://ci71963.tmweb.ru/autocash/payments.html">Платежи</a>
+					</li>
+					<li id="" class="menu-item menu-item-type-post_type menu-item-object-post">
+						<a href="https://ci71963.tmweb.ru/autocash/support.html">Поддержка</a>
+					</li>
+				</ul>
+				<div class="contacts">
+					<div class="social">
+
+						<a class="order-mob-2 watsapp-link" href="https://wa.me/79857880372">
+							<img src="img/icons//social1.svg" alt="WhatsApp">
+						</a>
+
+						<a class="order-mob-1 telegram-link" href="https://te.me">
+							<img src="img/icons/social2.svg">
+						</a>
+
+					</div>
+
+					<!--
+			<div class="phone">
+				<a class="is-lg-visible" href="+7 495 777-38-32">+7 495 777-38-32</a>
+				<a class="is-lg-hidden" href="+7 495 777-38-32">+7 495 777-38-32</a>
+				<span class="is-lg-visible"><span>Без выходных</span> с 9:00 до 21:00</span>
+			</div>
+			-->
+
+					<div class="phone phone_alloka">
+						<a class="is-lg-visible phone_alloka" href="tel:+7 495 777-38-32">
+							+7 495 777-38-32 </a>
+						<a class="is-lg-hidden phone_alloka" href="tel:+7 495 777-38-32">
+							+7 495 777-38-32 </a>
+						<span class="is-lg-visible"><span>Без выходных</span> с 9:00 до 21:00</span>
+					</div>
+				</div>
+				<div class="header__user">
+					<div class="header__user-icon">
+						<svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M3 1H19C20.1 1 21 1.9 21 3V15C21 16.1 20.1 17 19 17H3C1.9 17 1 16.1 1 15V3C1 1.9 1.9 1 3 1Z"
+								stroke="#003964" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21 3L11 10L1 3" stroke="#003964" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" />
+						</svg>
+						<div class="header__user-notify">3</div>
+					</div>
+					<div class="header__user-name">Иванов С.</div>
+				</div>
+			</div>
+		</header>
+		<main class="main-page">
+			<section class="page__head wrap big order__bg">
+				<form class="order-form-wrapper ">
+					<div class="order-progress-bar">
+						<div class="order-progress-bar__line" style="width: 20%;"></div>
+					</div>
+					<h1 class="order__title">Паспорт руководителя</h1>
+						<div class="order__alert-msg order__alert-msg_red">
+							<img src="./img/frown.svg" alt="" class="order__alert-msg-img">
+							<span>
+								Низкое качество фото. Сделайте фото еще раз
+							</span>
+						</div>
+					<div class="order_input-wrapper order-form-wrapper_pasport-upload">
+						
+						<div class="order-pasport-recomendation">
+							<span class="order-pasport-recomendation__title">
+								Рекомендации:
+							</span>
+							<ol class="order-pasport-recomendation__list">
+								<li>
+									Попробуйте отключить вспышку при съемке
+								</li>
+								<li>
+									Расположите документ так, чтобы он был освещен рамномерно
+								</li>
+								<li>
+									По возможности разгладьте неровности документа
+								</li>
+							</ol>
+						</div>
+						<div class="photo-upload-container">
+							<div class="photo-upload-img__wrapper">
+								<div class="photo-upload-img-container">
+									<img src="./img/illusration.png" alt="" class="photo-upload-preview">
+									<button type="button" class="photo-upload-delete" style="display: none;">
+										
+									</button>
+								</div>
+								
+							</div>
+							<input type="file" name="pasport-photo" id="pasport-photo-input" accept="image/*" required style="display: none;">
+							<div class="photo-upload-btns">
+								<button type="button" class="photo-upload-btn photo-upload-btn_shot">
+									<span>
+										Сделать<br> фото
+									</span>
+								</button>
+								<button type="button" class="photo-upload-btn photo-upload-btn_media">
+									<span>
+										Загрузить <br>из галереи
+									</span>
+								</button>
+							</div>
+						</div>
+						<p class="photo-upload-text">
+							Вводить данные самостоятельно не нужно. Они будут заполнены автоматически.
+						</p>
+							<div class="order_btn-container">
+								<button class="order__btn order__btn-prev">Назад</button>
+								<button class="order__btn order__btn-next" disabled>Далее</button>
+							</div>
+
+					</div>
+				</form>
+
+			</section>
+
+		</main>
+		<div class="acoount__footer">
+			<div class="acoount__footer-contacts">
+				<div class="social">
+					<a class="order-mob-2 watsapp-link" href="https://wa.me/79857880372">
+						<img src="img/icons//social1.svg" alt="WhatsApp">
+					</a>
+					<a class="order-mob-1 telegram-link" href="https://te.me">
+						<img src="img/icons/social2.svg">
+					</a>
+				</div>
+				<div class="phone phone_alloka">
+					<a class="phone_alloka" href="tel:+7 495 777-38-32">
+						+7 495 777-38-32 </a>
+					<span class="time"><span>Без выходных</span> с 9:00 до 21:00</span>
+				</div>
+			</div>
+			<div class="acoount__footer-copyright">АвтокапиталЪ, 2024</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20251029151108"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20251029151108"></script>
+	<script
+		src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js?_v=20251029151108"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			// СТРОГАЯ проверка - только меньше 991px
+			if (window.innerWidth > 990) return;
+
+			// Безопасно получаем элементы
+			const select = document.querySelector('.tab-navigation-select');
+			const contentItems = document.querySelectorAll('.tab__content-item');
+
+			// Проверяем, что элементы существуют
+			if (!select || contentItems.length === 0) {
+				console.warn('Tab elements not found');
+				return;
+			}
+
+			// Функция для переключения контента
+			function switchContent(selectedValue) {
+				try {
+					// Скрываем все контентные блоки
+					contentItems.forEach(item => {
+						if (item) item.setAttribute('hidden', '');
+					});
+
+					if (selectedValue === 'all') {
+						// Показываем все блоки
+						contentItems.forEach(item => {
+							if (item) item.removeAttribute('hidden');
+						});
+					} else {
+						// Показываем только выбранный блок
+						const activeContent = document.querySelector(`.tab__content-item-${selectedValue}`);
+						if (activeContent) {
+							activeContent.removeAttribute('hidden');
+						}
+					}
+				} catch (error) {
+					console.error('Error switching content:', error);
+				}
+			}
+
+			// Добавляем обработчик
+			select.addEventListener('change', function () {
+				if (this.value) {
+					switchContent(this.value);
+				}
+			});
+
+			// Инициализация
+			switchContent('all');
+		});
+	</script>
+	<script>
+		class CustomSelect {
+			constructor(container) {
+				this.container = container;
+				this.select = container.querySelector('select');
+				this.isOpen = false;
+
+				// Очищаем контейнер от предыдущих кастомных элементов
+				this.cleanContainer();
+				this.init();
+			}
+
+			cleanContainer() {
+				// Удаляем все кастомные элементы, кроме оригинального select
+				const customElements = this.container.querySelectorAll('.select-selected, .select-items');
+				customElements.forEach(el => el.remove());
+			}
+
+			init() {
+				this.createCustomSelect();
+				this.bindEvents();
+			}
+
+			createCustomSelect() {
+				// Создаем выбранный элемент
+				this.selectedDiv = document.createElement('DIV');
+				this.selectedDiv.className = 'select-selected';
+				this.selectedDiv.innerHTML = this.select.options[this.select.selectedIndex].innerHTML;
+				this.container.appendChild(this.selectedDiv);
+
+				// Создаем контейнер опций
+				this.optionsContainer = document.createElement('DIV');
+				this.optionsContainer.className = 'select-items select-hide';
+
+				// Создаем опции (начинаем с 0 индекса)
+				Array.from(this.select.options).forEach((option, index) => {
+					const optionDiv = document.createElement('DIV');
+					optionDiv.innerHTML = option.innerHTML;
+					optionDiv.dataset.index = index;
+
+					if (option.selected) {
+						optionDiv.className = 'same-as-selected';
+					}
+
+					this.optionsContainer.appendChild(optionDiv);
+				});
+
+				this.container.appendChild(this.optionsContainer);
+			}
+
+			bindEvents() {
+				// Клик по выбранному элементу
+				this.selectedDiv.addEventListener('mousedown', (e) => {
+					e.preventDefault();
+					e.stopPropagation();
+					this.toggleDropdown();
+				});
+
+				this.selectedDiv.addEventListener('touchstart', (e) => {
+					e.preventDefault();
+					e.stopPropagation();
+					this.toggleDropdown();
+				});
+
+				// Обработка кликов по опциям
+				this.optionsContainer.addEventListener('click', (e) => {
+					if (e.target !== this.optionsContainer) {
+						this.handleOptionClick(e);
+					}
+				});
+
+				this.optionsContainer.addEventListener('touchend', (e) => {
+					if (e.target !== this.optionsContainer) {
+						e.preventDefault();
+						this.handleOptionClick(e);
+					}
+				});
+
+				// Закрытие при клике вне селекта
+				document.addEventListener('click', (e) => {
+					if (!this.container.contains(e.target)) {
+						this.closeDropdown();
+					}
+				});
+
+				document.addEventListener('touchstart', (e) => {
+					if (!this.container.contains(e.target)) {
+						this.closeDropdown();
+					}
+				});
+
+				// Синхронизация с оригинальным select
+				this.select.addEventListener('change', () => {
+					this.updateSelected();
+				});
+
+				// Предотвращаем закрытие fancybox при взаимодействии с селектом
+				this.container.addEventListener('click', (e) => {
+					e.stopPropagation();
+				});
+
+				this.container.addEventListener('touchstart', (e) => {
+					e.stopPropagation();
+				});
+			}
+
+			handleOptionClick(e) {
+				const optionDiv = e.target;
+				const index = parseInt(optionDiv.dataset.index);
+
+				if (!isNaN(index)) {
+					this.select.selectedIndex = index;
+					this.select.dispatchEvent(new Event('change', {
+						bubbles: true
+					}));
+					this.updateSelected();
+					this.closeDropdown();
+				}
+			}
+
+			updateSelected() {
+				this.selectedDiv.innerHTML = this.select.options[this.select.selectedIndex].innerHTML;
+
+				// Обновляем классы опций
+				this.optionsContainer.querySelectorAll('div').forEach((optionDiv, i) => {
+					optionDiv.className = i === this.select.selectedIndex ? 'same-as-selected' : '';
+				});
+			}
+
+			toggleDropdown() {
+				if (this.isOpen) {
+					this.closeDropdown();
+				} else {
+					this.openDropdown();
+				}
+			}
+
+			openDropdown() {
+				CustomSelect.closeAllSelects(this);
+				this.optionsContainer.classList.remove('select-hide');
+				this.selectedDiv.classList.add('select-arrow-active');
+				this.isOpen = true;
+				this.adjustDropdownPosition();
+			}
+
+			closeDropdown() {
+				this.optionsContainer.classList.add('select-hide');
+				this.selectedDiv.classList.remove('select-arrow-active');
+				this.isOpen = false;
+			}
+
+			adjustDropdownPosition() {
+				setTimeout(() => {
+					const rect = this.optionsContainer.getBoundingClientRect();
+					const viewportHeight = window.innerHeight;
+
+					if (rect.bottom > viewportHeight) {
+						const overflow = rect.bottom - viewportHeight + 10;
+						this.optionsContainer.style.maxHeight = (rect.height - overflow) + 'px';
+						this.optionsContainer.style.overflowY = 'auto';
+					}
+				}, 0);
+			}
+
+			static closeAllSelects(excludeSelect = null) {
+				document.querySelectorAll('.select-items').forEach(container => {
+					if (excludeSelect && container === excludeSelect.optionsContainer) return;
+					container.classList.add('select-hide');
+				});
+
+				document.querySelectorAll('.select-selected').forEach(selected => {
+					if (excludeSelect && selected === excludeSelect.selectedDiv) return;
+					selected.classList.remove('select-arrow-active');
+				});
+
+				CustomSelect.instances.forEach(instance => {
+					if (instance !== excludeSelect) {
+						instance.isOpen = false;
+					}
+				});
+			}
+
+			static instances = [];
+
+			static initAll() {
+				const containers = document.getElementsByClassName('custom-select');
+
+				// Очищаем предыдущие инстансы
+				CustomSelect.instances = [];
+
+				for (let container of containers) {
+					// Проверяем, не был ли уже инициализирован этот контейнер
+					if (!container._customSelectInitialized) {
+						CustomSelect.instances.push(new CustomSelect(container));
+						container._customSelectInitialized = true;
+					}
+				}
+
+				return CustomSelect.instances;
+			}
+		}
+
+		// Функция для инициализации с защитой от дублирования
+		function initCustomSelects() {
+			setTimeout(() => {
+				CustomSelect.initAll();
+			}, 100);
+		}
+
+		// Инициализация при загрузке страницы
+		document.addEventListener('DOMContentLoaded', () => {
+			initCustomSelects();
+		});
+
+		// Для fancybox
+		document.addEventListener('DOMContentLoaded', () => {
+			document.addEventListener('fancybox:ready', initCustomSelects);
+			document.addEventListener('fancybox:show', initCustomSelects);
+			document.addEventListener('fancybox:beforeShow', initCustomSelects);
+			document.addEventListener('fancybox:afterShow', initCustomSelects);
+		});
+
+		// MutationObserver с защитой от дублирования
+		if (typeof MutationObserver !== 'undefined') {
+			const observer = new MutationObserver((mutations) => {
+				let shouldInit = false;
+
+				mutations.forEach((mutation) => {
+					mutation.addedNodes.forEach((node) => {
+						if (node.nodeType === 1) {
+							if (node.classList &&
+								(node.classList.contains('fancybox__container') ||
+									node.classList.contains('custom-select') ||
+									node.querySelector('.custom-select'))) {
+								shouldInit = true;
+							}
+						}
+					});
+				});
+
+				if (shouldInit) {
+					initCustomSelects();
+				}
+			});
+
+			observer.observe(document.body, {
+				childList: true,
+				subtree: true
+			});
+		}
+
+		// Ручная инициализация
+		window.initCustomSelects = initCustomSelects;
+
+		// Дополнительно: переинициализация при изменении размеров окна
+		window.addEventListener('resize', initCustomSelects);
+	</script>
+	<script src="./js/order.js"></script>
+</body>
+
+</html>
