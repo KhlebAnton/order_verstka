@@ -4,7 +4,10 @@
     --color-red-hover: #bA2222;
     --color-disbled: #819DB2;
 }
-
+input[type="date"] {
+  max-width: 100%;
+  box-sizing: border-box;
+}
 .order__title {
     font-size: 48px;
     font-weight: 700;
