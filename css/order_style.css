@@ -365,6 +365,7 @@ textarea.order-input {
     cursor: pointer;
     position: relative;
     margin: 13px 0;
+    border: none;
 }
 
 .order-slider::-webkit-slider-thumb {
@@ -376,6 +377,8 @@ textarea.order-input {
     background: var(--color-red) url('../img/range.svg') 50% / cover no-repeat;
     cursor: pointer;
     transition: background 0.2s;
+    border: none;
+
 }
 
 .order-slider::-moz-range-thumb {
@@ -385,11 +388,11 @@ textarea.order-input {
     background: var(--color-red) url('../img/range.svg') 50% / cover no-repeat;
     cursor: pointer;
     transition: background 0.2s;
+    border: none;
+
 }
 
-.order-slider::-moz-range-thumb:hover {
-    background: var(--color-red-hover);
-}
+
 
 .order-slider__value {
     font-size: 24px;
