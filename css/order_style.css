@@ -191,7 +191,7 @@ textarea.order-input {
     content: '';
     width: 20px;
     height: 26px;
-    top: 14;
+    top: 14px;
     right: 10px;
     background: url('../img/list.svg') 50% / contain no-repeat;
 
