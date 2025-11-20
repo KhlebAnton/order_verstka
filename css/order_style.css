@@ -1394,6 +1394,7 @@ text-align: center;
 
     .order-progress-bar {
         left: 20px;
+        position: static;
         right: 20px;
     }
 
